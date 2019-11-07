@@ -1,0 +1,1220 @@
+= Warriors Rest API Specification
+
+== Listing available heros:
+
+```
+GET /heroes HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:5050
+User-Agent: HTTPie/0.9.8
+
+
+
+HTTP/1.1 200 OK
+content-encoding: gzip
+content-type: application/json
+transfer-encoding: chunked
+
+[
+    {
+        "attack": 10,
+        "index": 0,
+        "life": 5,
+        "name": "Guerrier"
+    },
+    {
+        "attack": 6,
+        "index": 1,
+        "life": 3,
+        "name": "Magicien"
+    }
+]
+```
+
+== Listing available maps
+
+```
+GET /maps HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:5050
+User-Agent: HTTPie/0.9.8
+
+
+
+HTTP/1.1 200 OK
+content-encoding: gzip
+content-type: application/json
+transfer-encoding: chunked
+
+[
+    {
+        "index": 0,
+        "name": "Default Map",
+        "numberOfCases": 64
+    }
+]
+
+```
+
+== Create a game
+
+```
+POST /games HTTP/1.1
+Accept: application/json, */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 43
+Content-Type: application/json
+Host: localhost:5050
+User-Agent: HTTPie/0.9.8
+
+{
+    "hero": 0,
+    "map": 0,
+    "playerName": "foo"
+}
+
+HTTP/1.1 201 Created
+content-encoding: gzip
+content-type: application/json
+transfer-encoding: chunked
+
+{
+    "gameId": "4f460362-8006-41c6-b549-385169308bc5",
+    "gameStatus": "IN_PROGRESS",
+    "hero": {
+        "attackLevel": 10,
+        "dead": false,
+        "life": 5,
+        "name": "Guerrier"
+    },
+    "lastLog": [
+        "Partie démarrée ! Vous etes sur la case Départ"
+    ],
+    "map": {
+        "cases": [
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 7,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 7,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            }
+        ],
+        "name": "Default Map",
+        "numberOfCase": 64
+    },
+    "playerName": "foo"
+}
+```
+
+== Play a turn
+
+```
+POST /games/37569873-43ed-4d1c-b3a5-212040671804/turns HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 0
+Host: localhost:5050
+User-Agent: HTTPie/0.9.8
+
+
+
+HTTP/1.1 200 OK
+content-encoding: gzip
+content-type: application/json
+transfer-encoding: chunked
+
+{
+    "gameId": "37569873-43ed-4d1c-b3a5-212040671804",
+    "gameStatus": "IN_PROGRESS",
+    "hero": {
+        "attackLevel": 10,
+        "dead": false,
+        "life": 5,
+        "name": "Guerrier"
+    },
+    "lastLog": [
+        "Tirage du dé: 3",
+        "Vous avancez sur la case 3/64",
+        "Vous rencontrez un Gobelin de force 1",
+        "Bravo, vous avez vaincu l'ennemi !!"
+    ],
+    "map": {
+        "cases": [
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 7,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 7,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            }
+        ],
+        "name": "Default Map",
+        "numberOfCase": 64
+    },
+    "playerName": "foo"
+}
+```
+
+== Retrieve a game state
+
+```
+GET /games/37569873-43ed-4d1c-b3a5-212040671804/ HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 0
+Host: localhost:5050
+User-Agent: HTTPie/0.9.8
+
+
+
+HTTP/1.1 200 OK
+content-encoding: gzip
+content-type: application/json
+transfer-encoding: chunked
+
+{
+    "gameId": "37569873-43ed-4d1c-b3a5-212040671804",
+    "gameStatus": "IN_PROGRESS",
+    "hero": {
+        "attackLevel": 10,
+        "dead": false,
+        "life": 5,
+        "name": "Guerrier"
+    },
+    "lastLog": [
+        "Tirage du dé: 3",
+        "Vous avancez sur la case 3/64",
+        "Vous rencontrez un Gobelin de force 1",
+        "Bravo, vous avez vaincu l'ennemi !!"
+    ],
+    "map": {
+        "cases": [
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 1,
+                    "life": 6,
+                    "name": "Gobelin"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 1,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 3,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 2,
+                "type": "EQUIPMENT"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 2,
+                    "life": 9,
+                    "name": "Sorcier"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 7,
+                "type": "EQUIPMENT"
+            },
+            {
+                "equipmentValue": 7,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "equipmentValue": 5,
+                "type": "EQUIPMENT"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "type": "EMPTY"
+            },
+            {
+                "ennemy": {
+                    "attack": 4,
+                    "life": 15,
+                    "name": "Dragon"
+                },
+                "type": "ENEMY"
+            },
+            {
+                "type": "EMPTY"
+            }
+        ],
+        "name": "Default Map",
+        "numberOfCase": 64
+    },
+    "playerName": "foo"
+}
+```
+
+
+== Observe a game
+
+```
+GET /games/37569873-43ed-4d1c-b3a5-212040671804 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:5050
+User-Agent: HTTPie/0.9.8
+
+
+
+HTTP/1.1 200 OK
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+content-encoding: gzip
+content-type: text/event-stream;charset=UTF-8
+pragma: no-cache
+transfer-encoding: chunked
+
+
+data: <a game json payload>
+```
